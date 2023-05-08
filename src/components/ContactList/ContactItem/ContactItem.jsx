@@ -1,20 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ContactItem = ({ contacts }) => {
-  return contacts.map(contact => {
-    return (
-      <li key={contact.id}>
-        <p>
-          {contact.name}: {contact.number}
-        </p>
-      </li>
-    );
-  });
+const ContactItem = ({ id, name, number, onClick }) => {
+  return (
+    <li key={id}>
+      <p>
+        {name}: {number}
+      </p>
+      <button type="button" onClick={onClick}>
+        Delete
+      </button>
+    </li>
+  );
 };
 
 ContactItem.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  id: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ContactItem;
