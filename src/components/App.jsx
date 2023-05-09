@@ -4,6 +4,7 @@ import { Notify } from 'notiflix';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from './Filter/Filter';
+import { StyledWrapper } from './App.styled';
 
 class App extends React.Component {
   state = {
@@ -77,13 +78,13 @@ class App extends React.Component {
     const foundContact = this.getContact();
 
     return (
-      <div>
+      <StyledWrapper>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addNewContact} />
         <h2>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.handleChangeFilter} />
         <ContactList contacts={foundContact} onClick={this.deleteContact} />
-      </div>
+      </StyledWrapper>
     );
   }
 }
